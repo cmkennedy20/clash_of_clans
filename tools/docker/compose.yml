@@ -11,18 +11,3 @@ services:
     env_file:
       - ../../local.env
     entrypoint: ["sh", "-c", "while true; do echo Looping; sleep 100; done"]
-  localstack-container:
-    build:
-      context: ../../
-      dockerfile: tools/localstack/localstack.Dockerfile
-    container_name: localstack
-    ports:
-      - "127.0.0.1:4566:4566"            # LocalStack Gateway
-      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
-    environment:
-      - DEBUG=${DEBUG-}
-      - DOCKER_HOST=unix:///var/run/docker.sock
-    volumes:
-      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - ../../src/python/:/opt/python_home/
