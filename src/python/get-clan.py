@@ -1,4 +1,5 @@
 import requests
+import json
 import os
 
 CLAN_TAG = "%239RJOYLR9"
@@ -47,3 +48,7 @@ def get_war_history():
     except requests.exceptions.RequestException as e:
         print(f"Request error: {e}")
 
+result=get_clan()
+
+with open("data.json", "w") as f:
+    json.dump(result, f)
