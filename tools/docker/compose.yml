@@ -17,5 +17,5 @@ services:
       dockerfile: tools/docker/angular.Dockerfile
     container_name: angular-dev
     volumes:
-      - ../../src/frontend/:/opt/angular_home
-    
+      - ../../src/clash-ui/:/opt/angular_home
+    entrypoint: ["sh", "-c", "while true; do echo Looping; sleep 100; done"]
