@@ -17,7 +17,7 @@ services:
       dockerfile: tools/docker/react.Dockerfile
     container_name: react-dev
     volumes:
-      - ../../src/:/opt/react_home
-    entrypoint: ["sh", "-c", "while true; do echo Looping; sleep 100; done"]
+      - ../../src/clash-ui:/opt/react_home
+    entrypoint: ["npm", "start"]
     ports:
-      - 3000:3000
+      - 3000:3000 
