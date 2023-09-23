@@ -11,13 +11,13 @@ services:
     env_file:
       - ../../local.env
     entrypoint: ["sh", "-c", "while true; do echo Looping; sleep 100; done"]
-  angular-dev:
+  react-dev:
     build:
       context: ../../
-      dockerfile: tools/docker/angular.Dockerfile
-    container_name: angular-dev
+      dockerfile: tools/docker/react.Dockerfile
+    container_name: react-dev
     volumes:
-      - ../../src/clash-ui/:/opt/angular_home
+      - ../../src/:/opt/react_home
     entrypoint: ["sh", "-c", "while true; do echo Looping; sleep 100; done"]
     ports:
-      - 4200:4200
+      - 3000:3000
