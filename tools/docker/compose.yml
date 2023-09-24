@@ -5,22 +5,31 @@ services:
     build: 
       context: ../../
       dockerfile: tools/docker/python.Dockerfile
-    container_name: python-dev
+    container_name: backend
     volumes:
       - ../../src/python/:/opt/python_home
+    networks:
+      - clash-network
     env_file:
       - ../../local.env
-    entrypoint: ["sh", "-c", "while true; do echo Looping; sleep 100; done"]
+    entrypoint: ["flask", "run", "--host", "0.0.0.0", "--debug"]
+    # entrypoint: ["sh", "-c", "while true; do echo Looping; sleep 100; done"]
     ports:
       - 5000:5000
   react-dev:
     build:
       context: ../../
       dockerfile: tools/docker/react.Dockerfile
-    container_name: react-dev
+    container_name: frontend
     volumes:
       - ../../src/clash_ui:/opt/react_home
+    networks:
+      - clash-network
     entrypoint: ["npm", "run", "dev"]
     # entrypoint: ["sh", "-c", "while true; do echo Looping; sleep 100; done"]
     ports:
       - 8080:8080
+
+networks:
+  clash-network:
+    driver: "bridge"
