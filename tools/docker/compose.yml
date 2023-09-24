@@ -11,6 +11,8 @@ services:
     env_file:
       - ../../local.env
     entrypoint: ["sh", "-c", "while true; do echo Looping; sleep 100; done"]
+    ports:
+      - 5000:5000
   react-dev:
     build:
       context: ../../
