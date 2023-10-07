@@ -22,7 +22,7 @@ services:
       dockerfile: tools/docker/react.Dockerfile
     container_name: frontend
     volumes:
-      - ../../src/clash_ui:/opt/react_home
+      - ../../src/clash_ui/:/opt/react_home
     networks:
       - clash-network
     entrypoint: ["npm", "run", "dev"]
