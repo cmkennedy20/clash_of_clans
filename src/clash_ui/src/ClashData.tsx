@@ -13,7 +13,7 @@ function DataDisplay() {
 
   useEffect(() => {
     // Replace 'API_ENDPOINT' with the actual API endpoint you want to fetch data from
-    axios.get<DataItem[]>('API_ENDPOINT')
+    axios.get<DataItem[]>('http://localhost:5000/clan-members')
       .then((response:any) => {
         setData(response.data);
         setLoading(false);
