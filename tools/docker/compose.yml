@@ -29,6 +29,7 @@ services:
     # entrypoint: ["sh", "-c", "while true; do echo Looping; sleep 100; done"]
     ports:
       - 8080:8080
+      - 8081:8081
 
 networks:
   clash-network:
