@@ -40,9 +40,6 @@ function DataDisplay() {
     <header className="App-header">
       <h2>GitHub User Data</h2>
     </header>
-    <div className="user-container">
-      <h5 className="info-item">{userData.message}</h5>
-    </div>
   </div>    // <div>
     //   <h1>Data Display</h1>
     //   <ul>

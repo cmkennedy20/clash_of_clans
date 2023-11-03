@@ -1,14 +1,17 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
+var result = true;
 function App() {
-  const [count, setCount] = useState(0)
+  
+
+  const flip = () =>{
+    result=!result;
+    console.log(`it entered{result}`)
+  }
   return (
     <>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Click on the Vite and React logos to learn testmore {result}
       </p>
     </>
   )
