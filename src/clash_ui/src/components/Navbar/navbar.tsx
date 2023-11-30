@@ -1,54 +1,22 @@
-import { useState } from 'react';
-import styles from './navbar.css';
-
-function Navbar() {
-  // adding the states 
-  const [isActive, setIsActive] = useState(false);
-
-  //add the active class
-  const toggleActiveClass = () => {
-    setIsActive(!isActive);
-  };
-
-  //clean up function to remove the active class
-  const removeActive = () => {
-    setIsActive(false)
-  }
-
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Dropdown from 'react-bootstrap/Dropdown';
+function HeaderNavbar() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <Dropdown>
+      <Dropdown.Toggle variant="success" id="dropdown-basic">
+        Dropdown Button
+      </Dropdown.Toggle>
 
-        <nav className={`${styles.navbar}`}>
-
-          {/* logo */}
-          <a href='#home' className={`${styles.logo}`}>Dev. </a>
-
-          <ul className={`${styles.navMenu} ${isActive ? styles.active : ''}`}>
-            <li onClick={removeActive}>
-              <a href='#home' className={`${styles.navLink}`}>Home</a>
-            </li>
-            <li onClick={removeActive}>
-              <a href='#home' className={`${styles.navLink}`}>Catalog</a>
-            </li>
-            <li onClick={removeActive}>
-              <a href='#home' className={`${styles.navLink}`}>All products</a>
-            </li>
-            <li onClick={removeActive}>
-              <a href='#home' className={`${styles.navLink}`}>Contact</a>
-            </li>
-          </ul>
-
-          <div className={`${styles.hamburger} ${isActive ? styles.active : ''}`}  onClick={toggleActiveClass}>
-            <span className={`${styles.bar}`}></span>
-            <span className={`${styles.bar}`}></span>
-            <span className={`${styles.bar}`}></span>
-          </div>
-        </nav>
-
-      </header>
-    </div>
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 }
 
-export default Navbar;
+export default HeaderNavbar;
