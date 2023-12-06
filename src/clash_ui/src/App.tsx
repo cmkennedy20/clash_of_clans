@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <span> <HeaderNavbar /></span>
+      <HeaderNavbar />
     </>
   )
 }
